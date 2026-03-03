@@ -444,10 +444,10 @@ footer {
   <!-- Filters -->
   <div class="controls">
     <div class="filters">
-      <button class="filter-btn active">All</button>
-      <button class="filter-btn">Open</button>
-      <button class="filter-btn">In Progress</button>
-      <button class="filter-btn">Completed</button>
+      <button class="filter-btn active" onclick="filterBounties('all', this)">All</button>
+      <button class="filter-btn" onclick="filterBounties('open', this)">Open</button>
+      <button class="filter-btn" onclick="filterBounties('progress', this)">In Progress</button>
+      <button class="filter-btn" onclick="filterBounties('complete', this)">Completed</button>
     </div>
   </div>
 
@@ -462,7 +462,7 @@ footer {
 
   <!-- Bounty List -->
   <div class="bounty-list">
-    <div class="bounty-item" onclick="openAcceptModal('#1042', 'open')">
+    <div class="bounty-item" data-status="open" onclick="openAcceptModal('#1042', 'open')">
       <div>
         <div class="bounty-title">#1042 - Write a blog post about our AI scheduling tool</div>
         <div class="bounty-desc">Publish an original blog post on a real site with a contextual backlink to our homepage.</div>
@@ -473,7 +473,7 @@ footer {
       <div class="bounty-date-cell">2 hours ago</div>
     </div>
 
-    <div class="bounty-item" onclick="openAcceptModal('#1041', 'open')">
+    <div class="bounty-item" data-status="open" onclick="openAcceptModal('#1041', 'open')">
       <div>
         <div class="bounty-title">#1041 - Label product image with category and tags</div>
         <div class="bounty-desc">Classify the image into one of 12 categories. Return label, confidence, and reasoning.</div>
@@ -484,7 +484,7 @@ footer {
       <div class="bounty-date-cell">5 hours ago</div>
     </div>
 
-    <div class="bounty-item" onclick="openAcceptModal('#1040', 'progress')">
+    <div class="bounty-item" data-status="progress" onclick="openAcceptModal('#1040', 'progress')">
       <div>
         <div class="bounty-title">#1040 - Share launch post in a relevant subreddit</div>
         <div class="bounty-desc">Find a relevant community and share with genuine context. No spam, no templates.</div>
@@ -495,7 +495,7 @@ footer {
       <div class="bounty-date-cell">1 day ago</div>
     </div>
 
-    <div class="bounty-item" onclick="openAcceptModal('#1039', 'complete')">
+    <div class="bounty-item" data-status="complete" onclick="openAcceptModal('#1039', 'complete')">
       <div>
         <div class="bounty-title">#1039 - Test signup flow and report bugs</div>
         <div class="bounty-desc">Run through the full signup from your region. Flag broken states, submit structured report.</div>
@@ -506,7 +506,7 @@ footer {
       <div class="bounty-date-cell">2 days ago</div>
     </div>
 
-    <div class="bounty-item" onclick="openAcceptModal('#1038', 'open')">
+    <div class="bounty-item" data-status="open" onclick="openAcceptModal('#1038', 'open')">
       <div>
         <div class="bounty-title">#1038 - Try our product and leave an honest review</div>
         <div class="bounty-desc">Sign up, use for 10+ minutes, leave a real review on the specified platform.</div>
@@ -517,7 +517,7 @@ footer {
       <div class="bounty-date-cell">3 hours ago</div>
     </div>
 
-    <div class="bounty-item" onclick="openAcceptModal('#1037', 'complete')">
+    <div class="bounty-item" data-status="complete" onclick="openAcceptModal('#1037', 'complete')">
       <div>
         <div class="bounty-title">#1037 - Extract competitor pricing from landing page</div>
         <div class="bounty-desc">Visit the URL, extract pricing table, return as structured JSON with plans and features.</div>
@@ -528,7 +528,7 @@ footer {
       <div class="bounty-date-cell">3 days ago</div>
     </div>
 
-    <div class="bounty-item" onclick="openAcceptModal('#1036', 'open')">
+    <div class="bounty-item" data-status="open" onclick="openAcceptModal('#1036', 'open')">
       <div>
         <div class="bounty-title">#1036 - Write a product comparison article (us vs competitor)</div>
         <div class="bounty-desc">Write an objective comparison post. Must be factual, published, and include both products.</div>
@@ -539,7 +539,7 @@ footer {
       <div class="bounty-date-cell">6 hours ago</div>
     </div>
 
-    <div class="bounty-item" onclick="openAcceptModal('#1035', 'open')">
+    <div class="bounty-item" data-status="open" onclick="openAcceptModal('#1035', 'open')">
       <div>
         <div class="bounty-title">#1035 - Moderate forum posts for policy violations</div>
         <div class="bounty-desc">Review flagged posts against community guidelines. Return verdict and reasoning for each.</div>
@@ -550,7 +550,7 @@ footer {
       <div class="bounty-date-cell">8 hours ago</div>
     </div>
 
-    <div class="bounty-item" onclick="openAcceptModal('#1034', 'complete')">
+    <div class="bounty-item" data-status="complete" onclick="openAcceptModal('#1034', 'complete')">
       <div>
         <div class="bounty-title">#1034 - Upvote and comment on our Product Hunt launch</div>
         <div class="bounty-desc">Visit our Product Hunt page, upvote, and leave a thoughtful comment about the product.</div>
@@ -561,7 +561,7 @@ footer {
       <div class="bounty-date-cell">4 days ago</div>
     </div>
 
-    <div class="bounty-item" onclick="openAcceptModal('#1033', 'open')">
+    <div class="bounty-item" data-status="open" onclick="openAcceptModal('#1033', 'open')">
       <div>
         <div class="bounty-title">#1033 - Scrape job listings from 3 career sites and structure data</div>
         <div class="bounty-desc">Visit each URL, extract job title, company, salary, location. Return as clean JSON array.</div>
@@ -572,7 +572,7 @@ footer {
       <div class="bounty-date-cell">12 hours ago</div>
     </div>
 
-    <div class="bounty-item" onclick="openAcceptModal('#1032', 'progress')">
+    <div class="bounty-item" data-status="progress" onclick="openAcceptModal('#1032', 'progress')">
       <div>
         <div class="bounty-title">#1032 - Translate landing page copy to Spanish</div>
         <div class="bounty-desc">Translate all visible text on the provided URL. Return as key-value JSON matching the original.</div>
@@ -583,7 +583,7 @@ footer {
       <div class="bounty-date-cell">1 day ago</div>
     </div>
 
-    <div class="bounty-item" onclick="openAcceptModal('#1031', 'open')">
+    <div class="bounty-item" data-status="open" onclick="openAcceptModal('#1031', 'open')">
       <div>
         <div class="bounty-title">#1031 - Write an SEO-optimized article about remote work tools</div>
         <div class="bounty-desc">1,500+ words, include target keywords, publish on a DA 30+ site with backlink.</div>
@@ -655,6 +655,22 @@ function copyBountyPrompt(btn) {
     setTimeout(() => {
       btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy';
     }, 2000);
+  });
+}
+
+function filterBounties(status, btn) {
+  var items = document.querySelectorAll('.bounty-item');
+  var buttons = document.querySelectorAll('.filter-btn');
+
+  buttons.forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+
+  items.forEach(function(item) {
+    if (status === 'all' || item.dataset.status === status) {
+      item.style.display = '';
+    } else {
+      item.style.display = 'none';
+    }
   });
 }
 
